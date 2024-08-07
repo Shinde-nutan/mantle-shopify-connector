@@ -47,7 +47,7 @@ under the License.
         bulkOperationRunQuery(
             query: """
             {
-              products {
+              products <#if filterQuery?has_content>(query:"${filterQuery}")</#if> {
                 edges {
                   node {
                     id
