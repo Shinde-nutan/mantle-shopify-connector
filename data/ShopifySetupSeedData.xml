@@ -439,4 +439,15 @@ under the License.
     <moqui.basic.Enumeration description="Send Returns And Exchange Feed" enumId="SendReturnsAndExchangeFeed" enumTypeId="ShopifyMessageTypeEnum"/>
     <moqui.basic.Enumeration description="Generate Returns And Exchange Feed" enumId="GenerateReturnsAndExchangeFeed" enumTypeId="ShopifyMessageTypeEnum" relatedEnumId="SendReturnsAndExchangeFeed" relatedEnumTypeId="ShopifyMessageTypeEnum"/>
     <moqui.basic.Enumeration description="Generate Returned Order Ids Feed" enumId="GenerateReturnedOrderIdsFeed" enumTypeId="ShopifyMessageTypeEnum" relatedEnumId="GenerateReturnsAndExchangeFeed" relatedEnumTypeId="ShopifyMessageTypeEnum"/>
+
+     <!-- SystemMessageType record for bulk order items query to Shopify -->
+    <moqui.service.message.SystemMessageType systemMessageTypeId="BulkProductQuery"
+         description="Bulk product Query System Message"
+         parentTypeId="ShopifyBulkQuery"
+         sendServiceName="co.hotwax.shopify.system.ShopifySystemMessageServices.send#BulkQuerySystemMessage"
+         sendPath="component://shopify-connector/template/graphQL/BulkProductQuery.ftl"
+         consumeServiceName="co.hotwax.shopify.system.ShopifySystemMessageServices.consume#BulkOperationResult"
+         receivePath="${contentRoot}/shopify/BulkProductQuery/BulkOperationResult-${systemMessageId}-${remoteMessageId}-${nowDate}.jsonl">
+        <parameters parameterName="consumeSmrId" parameterValue="" systemMessageRemoteId=""/>
+    </moqui.service.message.SystemMessageType>
 </entity-facade-xml>
