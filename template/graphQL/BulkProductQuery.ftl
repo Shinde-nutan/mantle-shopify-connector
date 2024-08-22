@@ -55,7 +55,11 @@ under the License.
                     handle
                     description
                     productType
-                    vendor
+                    options{
+                        id
+                        name
+                        position
+                    }
                     status
                     tags
                     media {
@@ -80,7 +84,12 @@ under the License.
                           id
                           title
                           sku
+                          barcode
                           price
+                          compareAtPrice
+                          inventoryItem{
+                          id
+                          }
                           weight
                           weightUnit
                           image {
