@@ -179,4 +179,17 @@ under the License.
         <parameters parameterName="fromDate" parameterValue=""/>
         <parameters parameterName="thruDate" parameterValue=""/>
     </moqui.service.job.ServiceJob>
+
+     <!-- ServiceJob data for queuing bulk product query code application query -->
+    <moqui.service.job.ServiceJob jobName="queue_BulkQuerySystemMessage_BulkProductQuery" description="Queue bulk product query"
+        serviceName="co.hotwax.shopify.system.ShopifySystemMessageServices.queue#BulkQuerySystemMessage" cronExpression="0 0/15 * * * ?" paused="Y">
+        <parameters parameterName="systemMessageTypeId" parameterValue="BulkProductQuery"/>
+        <parameters parameterName="systemMessageRemoteId" parameterValue=""/>
+        <parameters parameterName="filterQuery" parameterValue=""/>
+        <parameters parameterName="fromDate" parameterValue=""/>
+        <parameters parameterName="thruDate" parameterValue=""/>
+        <parameters parameterName="fromDateLabel" parameterValue=""/>
+        <parameters parameterName="thruDateLabel" parameterValue=""/>
+    </moqui.service.job.ServiceJob>
+
 </entity-facade-xml>
